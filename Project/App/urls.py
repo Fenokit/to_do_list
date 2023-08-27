@@ -1,11 +1,12 @@
 # Создан для работы с URL – запросами
-import http.server
+from App.templates import *
 
-
-# Определяем класс обработчика запросов
-class RequestHandler(http.server.BaseHTTPRequestHandler):
-        def do_GET(self):
-            self.send_response(200)
-            self.send_header('Content-type', 'text/html')
-            self.end_headers()
-            self.wfile.write(b'Hello, World!')
+def parse_urls(path_urls=''):
+    if path_urls == '/add':
+        html_content = add_html_string()
+    elif path_urls == '/delete':
+        html_content = delete_html_string()
+    else:
+        html_content = general_html_string()
+        
+    return html_content
