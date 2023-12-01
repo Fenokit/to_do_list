@@ -68,7 +68,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 # Определяем класс сервера
 class Server:
     # Список портов
-    def __init__(self, host='', list_port=[8000, 8080]):
+    def __init__(self, host='', list_port=list[8000, 8080]):
         self.list_port = list_port
         self.host = host
 

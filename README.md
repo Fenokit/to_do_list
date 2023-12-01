@@ -1,4 +1,4 @@
-# to_do_lsit
+# to_do_list
  The project was created specifically for Mukanova Zhaslana
 
 напиши при помощи http.server код на python основная задача при получение запроса на сервер выдать страничку на которой будет:
