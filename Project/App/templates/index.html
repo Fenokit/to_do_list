@@ -1,74 +1,144 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>To Do List</title>
-    <style>
-        /* Стили для текста */
-        .main-title {
-            font-size: xx-large;
-            font-weight: bold;
-            text-align: center;
-        }
+  <head>    
+      <style>
+          h1, p, .add_value, container{
+              text-align: center;
+            }
+          
+            .table_all {
+              width: 400px;
+              box-sizing: border-box;
+              text-align: center;
+            }
 
-        .description {
-            font-size: large;
-            text-align: center;
-        }
 
-        /* Стили для кнопок */
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: large;
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 8px;
-        }
+            input[type=text] {
+              width: 350px;
+              padding: 14px 20px;
+              margin: 8px 0;
+              box-sizing: border-box;
+              border: none;
+              background-color: #f1f1f1;
+            }
+            
+            .button {
+              background-color: #4CAF50;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              cursor: pointer;
+            }
+            
+            table {
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            th, td {
+              text-align: left;
+              padding: 8px;
+            }
+            #timeCheck{
+              text-align: right;
+            }
+            
+            th {
+              background-color: #4CAF50;
+              color: white;
+            }
+            
+            .delete::after {
+                content: '\1F5D1'; /* Код Unicode для значка мусорки, который будет отображаться */
+            }
+            .active {
+              color: black;
+            }
+            
+            .completed {
+              text-decoration: line-through;
+            }
+              
+            .deleted {
+              color: #ccc;
+            }
 
-        /* Стили для таблицы */
-        table {
-            border-collapse: collapse;
-            margin: auto;
-        }
+            .purple {
+              color: purple;
+            }
 
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
+            .blue {
+              color:blue;
+            }
+
+            .black {
+              color: black;
+            }
+
+
+      </style>
+      <script>
+          function toggleCheck(row) {
+            var checkbox = row.querySelector('.checkbox');
+            checkbox.classList.toggle('checked');
+
+            var task = row.querySelector('.task');
+            task.classList.toggle('completed');
+
+            var time = row.querySelector('.time');
+            time.classList.toggle('completed');
+
+            var priority_class = row.querySelector('.priority');
+            var priority_name = row.querySelector('priority');
+            alert(priority_class.textContent)
+            alert(priority_name.textContent)
+            priority.classList.toggle('.priority')
+            priority.submit;
         }
-    </style>
-</head>
-<body>
-    <h1 class="main-title">Добро Пожаловать в To Do List</h1>
-    <h2 class="description">Работы выполнена в целях обучения<br>Выполнил Муканов</h2>
-    <div style="text-align:center;">
-        <a href="/add" class="button">Добавить</a>
-        <a href="/delete" class="button">Удалить</a>
+      
+        function toggleDelete(row) {
+          var button = row.querySelector('.delete')
+          alert(button.textContent)
+          var task = row.querySelector('.task')
+          alert(task.textContent)
+          var priority = row.querySelector('.priority')
+          alert(priority.textContent)
+
+          if (button.textContent === 'удалить') {
+              button.textContent = 'вернуть';
+              row.classList.add('deleted');
+          } else {
+              button.textContent = 'удалить';
+              row.classList.remove('deleted');
+          }
+        }
+      </script>
+  </head>
+  <body>
+    <div>
+      <h1>Добро Пожаловать в To Do List</h1>
+      <p>Работы выполнена в целях обучения<br>Выполнил Муканов Ренат</p>
     </div>
-    <br>
-    <table>
-        <tr>
-            <th>Задача</th>
-            <th>Статус</th>
-        </tr>
-        <tr>
-            <td>Задача 1</td>
-            <td>Выполнена</td>
-        </tr>
-        <tr>
-            <td>Задача 2</td>
-            <td>В процессе</td>
-        </tr>
-        <tr>
-            <td>Задача 3</td>
-            <td>Не выполнена</td>
-        </tr>
-    </table>
-</body>
+    <div><form method="post">
+      <input type="text" name="task" placeholder="Введите значение" required>
+      <input type="submit" value="Добавить" class="button">
+    </form></div>
+    
+      <br><br>
+      <div>
+          <table name="table_all">
+              <thead>
+                  <tr>
+                      <th><input type="checkbox" class="checkbox" onclick="toggleCheck(this.parentNode.parentNode)" />&nbsp;</th>
+                      <th>Наименование задачи</th>
+                      <th>Действие</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {task_Table}
+              </tbody>
+          </table>
+      </div>
+  </body>
 </html>

@@ -1,0 +1,47 @@
+h1, p, .add_value, container{
+  text-align: center;
+}
+
+input[type=text] {
+  width: 350px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #f1f1f1;
+}
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+#timeCheck{
+  text-align: right;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+  
+.grayed-out {
+  color: #ccc;
+}
